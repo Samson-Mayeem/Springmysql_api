@@ -47,5 +47,9 @@ public class Product {
     public void setPrice(DecimalFormat price) {
         Price = price;
     }
+    @Override
+    public String toString() {
+        return "Product [Id=" + Id + ", Price=" + Price + ", description=" + description + ", name=" + name + "]";
+    }
 
 }
