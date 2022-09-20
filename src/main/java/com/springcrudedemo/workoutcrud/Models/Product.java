@@ -2,10 +2,17 @@ package com.springcrudedemo.workoutcrud.Models;
 
 import java.text.DecimalFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 
 
+@Entity
+@Table(name="product")
 public class Product {
-    
+    @javax.persistence.Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "product_sequence")
     private long Id;
     private String name;
     private String description;
