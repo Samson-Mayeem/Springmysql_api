@@ -29,7 +29,16 @@ public class UserController {
         userService.addUser(user);
     }
     @DeleteMapping(path = "{id}")
-    public  void userDelete(@PathVariable("userid") Long Id){
-        userService.deleteUser(Id);
+    public  void userDelete(@PathVariable Long id){
+        userService.deleteUser(id);
+    }
+    @PutMapping(path = "{id}")
+    public void  updateUser(
+            @PathVariable ("id") Long id,
+            @PathVariable(required = false) String username,
+            @PathVariable(required = false) String email,
+            @PathVariable(required = false) String password
+    ){
+        userService.UpdateUser(id, username, email, password);
     }
 }

@@ -1,12 +1,11 @@
 package com.springcrudedemo.workoutcrud.Services;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.springcrudedemo.workoutcrud.Models.User;
 import com.springcrudedemo.workoutcrud.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import com.springcrudedemo.workoutcrud.Models.User;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -36,5 +35,9 @@ public class UserService {
             throw new IllegalStateException("user with Id" + id + "does not exist");
         }
         userRepository.deleteById(id);
+    }
+
+    public void UpdateUser(Long id, String username, String email, String password) {
+
     }
 }
