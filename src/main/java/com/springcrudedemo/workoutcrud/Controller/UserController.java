@@ -2,12 +2,12 @@ package com.springcrudedemo.workoutcrud.Controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.springcrudedemo.workoutcrud.Models.User;
 import com.springcrudedemo.workoutcrud.Services.UserService;
+
+import javax.persistence.Id;
 
 
 @RestController
@@ -23,8 +23,15 @@ public class UserController {
 
     @GetMapping
     public List<User> getUser(){
-        return userService.getUser();
+        return userService.getUsers();
     }
 
-    
+    @PostMapping
+    public void registerUser(@RequestBody User user){
+        userService.addUser(user);
+    }
+    @DeleteMapping(path = "{id}")
+    public  void userDelete(@PathVariable("userid") Long Id){
+        userService.deleteUser(Id);
+    }
 }

@@ -1,13 +1,11 @@
 package com.springcrudedemo.workoutcrud.Repository;
 
-import org.springframework.data.repository.Repository;
-
 import com.springcrudedemo.workoutcrud.Models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends Repository<User, Integer> {
+import java.util.Optional;
 
-    static Iterable<User> findAll() {
-        return null;
-    }
-    
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByEmail(String email);
+
 }
