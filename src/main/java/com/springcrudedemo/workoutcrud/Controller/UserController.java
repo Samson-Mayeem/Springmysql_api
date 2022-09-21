@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import com.springcrudedemo.workoutcrud.Models.User;
 import com.springcrudedemo.workoutcrud.Services.UserService;
 
-import javax.persistence.Id;
-
 
 @RestController
 @RequestMapping(path = "api/v1/users")
