@@ -6,6 +6,7 @@ import com.springcrudedemo.workoutcrud.Repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -36,6 +37,18 @@ public class ProductService {
     }
 
     public void UpdateUser(Long id, String name, String description, String price) {
-
+        Product product = productRepository.findById(id).orElseThrow( ()->new IllegalStateException("product with id"+ id + "does not exist"));
+        if(name != null && name.length()>0 && !Objects.equals(product.getName(), name));
+        {
+            product.setName(name);
+        }
+        if(description != null && description.length()>0 && !Objects.equals(product.getDescription(), description));
+        {
+            product.setDescription(description);
+        }
+        if(price != null && price.length()>0 && !Objects.equals(product.getPrice(), price));
+        {
+            product.setPrice(price);
+        }
     }
 }

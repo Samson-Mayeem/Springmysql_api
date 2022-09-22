@@ -5,6 +5,7 @@ import com.springcrudedemo.workoutcrud.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -38,6 +39,18 @@ public class UserService {
     }
 
     public void UpdateUser(Long id, String username, String email, String password) {
-
+        User user = userRepository.findById(id).orElseThrow( ()->new IllegalStateException("user with id"+ id + "does not exist"));
+        if(username != null && username.length()>0 && !Objects.equals(user.getUsername(), username));
+        {
+            user.setUsername(username);
+        }
+        if(email != null && email.length()>0 && !Objects.equals(user.getEmail(), email));
+        {
+            user.setEmail(email);
+        }
+        if(password != null && password.length()>0 && !Objects.equals(user.getPassword(), password));
+        {
+            user.setPassword(password);
+        }
     }
 }

@@ -1,7 +1,4 @@
 package com.springcrudedemo.workoutcrud.Models;
-
-import java.text.DecimalFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -17,19 +14,19 @@ public class Product {
     private long Id;
     private String name;
     private String description;
-    private DecimalFormat Price;
+    private String Price;
     public Product() {
     }
-    public Product(long id, String name, String description, DecimalFormat price) {
+    public Product(long id, String name, String description, String price) {
         Id = id;
         this.name = name;
         this.description = description;
-        Price = price;
+        this.Price = price;
     }
-    public Product(String name, String description, DecimalFormat price) {
+    public Product(String name, String description, String price) {
         this.name = name;
         this.description = description;
-        Price = price;
+        this.Price = price;
     }
     public long getId() {
         return Id;
@@ -49,11 +46,11 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    public DecimalFormat getPrice() {
+    public String getPrice() {
         return Price;
     }
-    public void setPrice(DecimalFormat price) {
-        Price = price;
+    public void setPrice(String price) {
+        this.Price = price;
     }
     @Override
     public String toString() {
