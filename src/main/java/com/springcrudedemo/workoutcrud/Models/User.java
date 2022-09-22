@@ -56,6 +56,4 @@ public class User {
     public String toString() {
         return "User [email=" + email + ", id=" + id + ", password=" + password + ", username=" + username + "]";
     }
-    public void userame(String name) {
-    }
 }
