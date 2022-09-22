@@ -23,7 +23,7 @@ public class ProductService {
     public void addUser(Product product) {
         Optional<Product> productOptional = productRepository.findProductByName(product.getName());
         if (productOptional.isPresent()){
-            throw new IllegalStateException("user already exists");
+            throw new IllegalStateException("product already exists");
         }
         productRepository.save(product);
         System.out.println(product);
